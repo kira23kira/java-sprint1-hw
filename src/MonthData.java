@@ -7,11 +7,15 @@ class MonthData {
         for (int i = 0; i < days.length; i++) {
             System.out.println((i + 1) + " день: " + days[i]);
         }
+    }
+
+    static int sumStepsFromMonth() {
         int sumSteps = 0;
         for (int i = 0; i < days.length; i++) {
             sumSteps = sumSteps + days[i];
         }
-        System.out.println("Всего пройдено шагов:" + sumSteps);
+        return sumSteps;
+
     }
 
     public static int maxSteps() {

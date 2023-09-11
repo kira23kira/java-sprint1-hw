@@ -10,7 +10,7 @@ class Main {
             } else if (i == 2) {
                 StepTracker.changeStepGoal();
             } else if (i == 3) {
-
+                StepTracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
                 scanner.close();
