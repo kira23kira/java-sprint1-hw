@@ -1,18 +1,14 @@
 import java.util.Scanner;
-
 class StepTracker {
-    static Scanner scanner = new Scanner(System.in);
-    static MonthData[] monthToData = new MonthData[12];
-
+    Scanner scanner;
+    MonthData[] monthToData = new MonthData[12];
     StepTracker(Scanner scan) {
         scanner = scan;
-
         for (int i = 0; i < monthToData.length; i++) {
             monthToData[i] = new MonthData();
         }
     }
-
-    public static void addNewNumberStepsPerDay() {
+    public void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
         int month = scanner.nextInt();
         if (month < 1) {
@@ -34,17 +30,17 @@ class StepTracker {
         }
 
         System.out.println("Введите количество шагов");
-        int step = scanner.nextInt();
-        if (step < 0) {
+        int steps = scanner.nextInt();
+        if (steps < 0) {
             System.out.println("Неверный ввод");
             return;
         }
         MonthData monthData = monthToData[month - 1];
-        MonthData.days[day - 1] = step;
+        MonthData.days[day - 1] = steps;
     }
 
-    static int goalByStepsPerDay = 10000;
-    public static void changeStepGoal() {
+    int goalByStepsPerDay = 10000;
+    public void changeStepGoal() {
         System.out.println("Введите цель шагов на сегодня");
         goalByStepsPerDay = scanner.nextInt();
         if (goalByStepsPerDay <= 0) {
@@ -53,15 +49,14 @@ class StepTracker {
         System.out.println("Цель на сегодня: " + goalByStepsPerDay);
     }
 
-    static void printStatistic() {
+    void printStatistic() {
         System.out.println("Введите число месяца");
         int month = scanner.nextInt();// ввод и проверка номера месяца
         if (month <= 1 || month >= 12) {
             System.out.println("Неверный ввод");
             return;
         }
-
-        monthData = MonthData[month - 1]; // получение соответствующего месяца ?????
+        MonthData monthData = monthToData[month - 1]; // получение соответствующего месяца
         int sumSteps = MonthData.sumStepsFromMonth();
         System.out.println();
         MonthData.printDaysAndStepsFromMonth(); // вывод общей статистики по дням + суммы шагов за месяц
@@ -69,7 +64,7 @@ class StepTracker {
         System.out.println("Больше всего пройдено шагов: " + MonthData.maxSteps()); // вывод максимального пройденного количества шагов за месяц
         System.out.println("Пройдено дистанции за месяц: " + Converter.convertToKm(sumSteps) + " км."); // вывод пройденной за месяц дистанции в км
         System.out.println("Сожжённых килокалорий за месяц: " + Converter.convertStepsToKilocalories(sumSteps)); // вывод количества сожжённых килокалорий за месяц
-        // вывод лучшей серии ???
+        System.out.println("Лучшая серия за месяц: " + MonthData.bestSeries()); // вывод лучшей серии ???
         System.out.println(); //дополнительный перенос строки
     }
 }

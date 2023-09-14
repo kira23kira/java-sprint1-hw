@@ -1,7 +1,7 @@
 class MonthData {
     static int[] days = new int[30];
 
-    public static void printDaysAndStepsFromMonth() {
+    static void printDaysAndStepsFromMonth() {
         System.out.println("Статистика шагов за месяц: ");
 
         for (int i = 0; i < days.length; i++) {
@@ -18,7 +18,7 @@ class MonthData {
 
     }
 
-    public static int maxSteps() {
+    static int maxSteps() {
         int maxSteps = 0;
         for (int i = 0; i < days.length; i++) {
             if (days[i] > maxSteps) {
@@ -27,5 +27,12 @@ class MonthData {
         }
         return maxSteps;
     }
-
+    static int bestSeries() {
+        int currentSeries = 0;
+        int finalSeries = 0;
+        for (int i = 0; i < days.length; i++) {
+            //finalSeries = currentSeries < days[i];
+        }
+        return finalSeries;
+    }
 }

@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Converter {
     static double convertToKm(int steps) {
         double oneStep = 0.00075;

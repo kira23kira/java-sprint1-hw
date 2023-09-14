@@ -2,15 +2,17 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        StepTracker tracker = new StepTracker(scanner);
+
         while (true) {
             printMenu();
             int i = scanner.nextInt();
             if (i == 1) {
-                StepTracker.addNewNumberStepsPerDay();
+                tracker.addNewNumberStepsPerDay();
             } else if (i == 2) {
-                StepTracker.changeStepGoal();
+                tracker.changeStepGoal();
             } else if (i == 3) {
-                StepTracker.printStatistic();
+                tracker.printStatistic();
             } else if (i == 4) {
                 System.out.println("Пока!");
                 scanner.close();
@@ -20,7 +22,6 @@ class Main {
             }
         }
     }
-
     static void printMenu() {
         System.out.println("Выберите номер пункта меню:");
         System.out.println("1. - Ввести количество шагов за определённый день");
@@ -29,6 +30,7 @@ class Main {
         System.out.println("4. - Выйти из приложения");
     }
 }
+
 
 
 
