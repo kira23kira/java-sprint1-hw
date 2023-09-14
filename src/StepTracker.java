@@ -1,5 +1,6 @@
 import java.util.Scanner;
 class StepTracker {
+    int goalByStepsPerDay = 10000;
     Scanner scanner;
     MonthData[] monthToData = new MonthData[12];
     StepTracker(Scanner scan) {
@@ -36,10 +37,8 @@ class StepTracker {
             return;
         }
         MonthData monthData = monthToData[month - 1];
-        MonthData.days[day - 1] = steps;
+        monthData.days[day - 1] = steps;
     }
-
-    int goalByStepsPerDay = 10000;
     public void changeStepGoal() {
         System.out.println("Введите цель шагов на сегодня");
         goalByStepsPerDay = scanner.nextInt();
@@ -57,14 +56,14 @@ class StepTracker {
             return;
         }
         MonthData monthData = monthToData[month - 1]; // получение соответствующего месяца
-        int sumSteps = MonthData.sumStepsFromMonth();
+        int sumSteps = monthData.sumStepsFromMonth();
         System.out.println();
-        MonthData.printDaysAndStepsFromMonth(); // вывод общей статистики по дням + суммы шагов за месяц
+        monthData.printDaysAndStepsFromMonth(); // вывод общей статистики по дням + суммы шагов за месяц
         System.out.println("Среднее кол-во шагов: " + (sumSteps / 30)); // ср за месяц
-        System.out.println("Больше всего пройдено шагов: " + MonthData.maxSteps()); // вывод максимального пройденного количества шагов за месяц
+        System.out.println("Больше всего пройдено шагов: " + monthData.maxSteps()); // вывод максимального пройденного количества шагов за месяц
         System.out.println("Пройдено дистанции за месяц: " + Converter.convertToKm(sumSteps) + " км."); // вывод пройденной за месяц дистанции в км
         System.out.println("Сожжённых килокалорий за месяц: " + Converter.convertStepsToKilocalories(sumSteps)); // вывод количества сожжённых килокалорий за месяц
-        System.out.println("Лучшая серия за месяц: " + MonthData.bestSeries()); // вывод лучшей серии ???
+        System.out.println("Лучшая серия за месяц: " + monthData.bestSeries(goalByStepsPerDay)); // вывод лучшей серии ???
         System.out.println(); //дополнительный перенос строки
     }
 }
