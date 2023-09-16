@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Converter {
     static double convertToKm(int steps) {
         double oneStep = 0.00075;
@@ -7,7 +6,7 @@ public class Converter {
         return distance;
     }
     static double convertStepsToKilocalories(int steps) {
-        double kilokalories = 0.001;
+        double kilokalories = 0.05;
         kilokalories = steps * kilokalories;
         return kilokalories;
     }

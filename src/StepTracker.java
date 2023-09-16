@@ -44,6 +44,7 @@ class StepTracker {
         goalByStepsPerDay = scanner.nextInt();
         if (goalByStepsPerDay <= 0) {
             System.out.println("Неверный ввод");
+            return;
         }
         System.out.println("Цель на сегодня: " + goalByStepsPerDay);
     }
@@ -51,7 +52,7 @@ class StepTracker {
     void printStatistic() {
         System.out.println("Введите число месяца");
         int month = scanner.nextInt();// ввод и проверка номера месяца
-        if (month <= 1 || month >= 12) {
+        if (month <= 0 || month >= 13) {
             System.out.println("Неверный ввод");
             return;
         }
